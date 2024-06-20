@@ -3,6 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataInvoices } from "../../data/mockData";
 import Header from "../../components/Header";
+import SectionBox from "../../components/SectionBox";
 
 const Invoices = () => {
   const theme = useTheme();
@@ -43,11 +44,11 @@ const Invoices = () => {
   ];
 
   return (
-    <Box m="20px">
+    <SectionBox m="20px">
       <Header title="INVOICES" subtitle="List of Invoice Balances" />
       <Box
-        m="40px 0 0 0"
-        height="75vh"
+        p="30px"
+        height="70vh"
         sx={{
           "& .MuiDataGrid-root": {
             border: "none",
@@ -56,27 +57,27 @@ const Invoices = () => {
             borderBottom: "none",
           },
           "& .name-column--cell": {
-            color: colors.greenAccent[300],
+            color: colors.text[0],
           },
           "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor: colors.background.sectionBox,
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[400],
+            backgroundColor: 'transparent',
           },
           "& .MuiDataGrid-footerContainer": {
             borderTop: "none",
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor: colors.background.sectionBox,
           },
           "& .MuiCheckbox-root": {
-            color: `${colors.greenAccent[200]} !important`,
+            color: `${colors.text[1]} !important`,
           },
         }}
       >
         <DataGrid checkboxSelection rows={mockDataInvoices} columns={columns} />
       </Box>
-    </Box>
+    </SectionBox>
   );
 };
 

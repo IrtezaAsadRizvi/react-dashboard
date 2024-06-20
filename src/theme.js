@@ -3,8 +3,22 @@ import { createTheme } from "@mui/material/styles";
 
 // color design tokens export
 export const tokens = (mode) => ({
-  ...(mode === "dark"
+  ...(
+    mode === "dark"
     ? {
+        background: {
+            body: 'linear-gradient(-45deg, red, green, blue, yellow)',
+            sectionBox: 'rgba(255, 255, 255, 0.3)',
+            sectionBoxInner: 'rgba(255, 255, 255, 0.7)',
+            solid: "#212121"
+        },
+        text: {
+          0: "#212121",
+          1: "#7A8794",
+          2: "#9AA5B1",
+          3: "#CAD2D9",
+          4: "#FFFFFF"
+        },
         grey: {
           100: "#e0e0e0",
           200: "#c2c2c2",
@@ -26,6 +40,14 @@ export const tokens = (mode) => ({
           700: "#0c101b",
           800: "#080b12",
           900: "#040509",
+          0: '#4496EA',
+          1: '#E383CE',
+          2: '#808FCA'
+        },
+        theme: {
+          100: "#D3D3E9",
+          0: "#212121",
+          success: '#2BCCB1'
         },
         greenAccent: {
           100: "#dbf5ee",
@@ -60,8 +82,25 @@ export const tokens = (mode) => ({
           800: "#2a2d64",
           900: "#151632",
         },
+        control: {
+          boxBG: '#0093E9',
+          boxImage: '#linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)'
+        }
       }
     : {
+        background: {
+            body: 'linear-gradient(-45deg, #DFD9F6, #E0DFE1, #F3DEE2, #E6D8F6)',
+            sectionBox: 'rgba(255, 255, 255, 0.3)',
+            sectionBoxInner: 'rgba(255, 255, 255, 0.7)',
+            solid: "#F5F5F5"
+        },
+        text: {
+          0: "#212121",
+          1: "#7A8794",
+          2: "#9AA5B1",
+          3: "#CAD2D9",
+          4: "#FFFFFF"
+        },
         grey: {
           100: "#141414",
           200: "#292929",
@@ -83,6 +122,14 @@ export const tokens = (mode) => ({
           700: "#727681",
           800: "#a1a4ab",
           900: "#d0d1d5",
+          0: '#4496EA',
+          1: '#E383CE',
+          2: '#808FCA'
+        },
+        theme: {
+          100: "#D3D3E9",
+          0: '#F5F5F5',
+          success: '#2BCCB1'
         },
         greenAccent: {
           100: "#0f2922",
@@ -117,6 +164,10 @@ export const tokens = (mode) => ({
           800: "#c3c6fd",
           900: "#e1e2fe",
         },
+        control: {
+          boxBG: '#0093E9',
+          boxImage: '#linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)'
+        }
       }),
 });
 
@@ -140,9 +191,7 @@ export const themeSettings = (mode) => {
               main: colors.grey[500],
               light: colors.grey[100],
             },
-            background: {
-              default: colors.primary[500],
-            },
+            backgroundImage: colors.background.body
           }
         : {
             // palette values for light mode
@@ -157,36 +206,27 @@ export const themeSettings = (mode) => {
               main: colors.grey[500],
               light: colors.grey[100],
             },
-            background: {
-              default: "#fcfcfc",
-            },
+            backgroundImage: colors.background.body
           }),
     },
     typography: {
-      fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
       fontSize: 12,
       h1: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 40,
       },
       h2: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 32,
       },
       h3: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 24,
       },
       h4: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 20,
       },
       h5: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-        fontSize: 16,
+        fontSize: 18,
       },
       h6: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 14,
       },
     },
@@ -199,7 +239,7 @@ export const ColorModeContext = createContext({
 });
 
 export const useMode = () => {
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = useState("light");
 
   const colorMode = useMemo(
     () => ({

@@ -1,42 +1,47 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { tokens } from "../theme";
-import ProgressCircle from "./ProgressCircle";
 
-const StatBox = ({ title, subtitle, icon, progress, increase }) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+const StatBox = ({ title, subtitle, icon, increase }) => {
+    const theme = useTheme();
+    const colors = tokens(theme.palette.mode);
 
-  return (
-    <Box width="100%" m="0 30px">
-      <Box display="flex" justifyContent="space-between">
-        <Box>
-          {icon}
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            sx={{ color: colors.grey[100] }}
-          >
-            {title}
-          </Typography>
+    return (
+        <Box width="100%" display="flex" justifyContent="space-between" padding="10px">
+            <section
+                className="flex-center"
+                style={{
+                    height: '60px',
+                    width: '60px',
+                    borderRadius: '25px',
+                    backgroundColor: colors.theme[0]
+                }}
+            >{icon}</section>
+            <Box display="flex" flexDirection="column" mt="2px" flexGrow="1" ml="10px">
+
+            <Typography sx={{ color: colors.text[2] }}>
+                        {subtitle}
+                    </Typography>
+                
+                <Box display="flex" justifyContent="space-between">
+                <Typography
+                    variant="h3"
+                    fontWeight="bold"
+                    className="condensed"
+                    sx={{ color: colors.text[0] }}
+                >
+                    {title}
+                </Typography>
+                    <Typography
+                        fontWeight="bold"
+                        sx={{ color: colors.primary[0] }}
+                    >
+                        {increase}
+                    </Typography>
+                </Box>
+                
+            </Box>
         </Box>
-        <Box>
-          <ProgressCircle progress={progress} />
-        </Box>
-      </Box>
-      <Box display="flex" justifyContent="space-between" mt="2px">
-        <Typography variant="h5" sx={{ color: colors.greenAccent[500] }}>
-          {subtitle}
-        </Typography>
-        <Typography
-          variant="h5"
-          fontStyle="italic"
-          sx={{ color: colors.greenAccent[600] }}
-        >
-          {increase}
-        </Typography>
-      </Box>
-    </Box>
-  );
+    );
 };
 
 export default StatBox;

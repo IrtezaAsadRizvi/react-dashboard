@@ -2,6 +2,7 @@ import { Box, useTheme } from "@mui/material";
 import GeographyChart from "../../components/GeographyChart";
 import Header from "../../components/Header";
 import { tokens } from "../../theme";
+import SectionBox from "../../components/SectionBox";
 
 const Geography = () => {
   const theme = useTheme();
@@ -10,13 +11,11 @@ const Geography = () => {
     <Box m="20px">
       <Header title="Geography" subtitle="Simple Geography Chart" />
 
-      <Box
-        height="75vh"
-        border={`1px solid ${colors.grey[100]}`}
-        borderRadius="4px"
+      <SectionBox
+        height="70vh"
       >
         <GeographyChart />
-      </Box>
+      </SectionBox>
     </Box>
   );
 };

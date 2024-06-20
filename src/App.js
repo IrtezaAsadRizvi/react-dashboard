@@ -12,18 +12,27 @@ import Line from "./scenes/line";
 import Pie from "./scenes/pie";
 import FAQ from "./scenes/faq";
 import Geography from "./scenes/geography";
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import { ColorModeContext, useMode } from "./theme";
+import { CssBaseline, ThemeProvider, GlobalStyles } from "@mui/material";
+import { ColorModeContext, useMode, tokens } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
+
 
 function App() {
   const [theme, colorMode] = useMode();
+  const colors = tokens(theme.palette.mode)
   const [isSidebar, setIsSidebar] = useState(true);
 
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <GlobalStyles
+          styles={{
+            body: {
+              background: colors.background.body,
+            },
+          }}
+        />
         <div className="app">
           <Sidebar isSidebar={isSidebar} />
           <main className="content">

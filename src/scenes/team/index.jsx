@@ -6,6 +6,8 @@ import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettin
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
+import SectionBox from "../../components/SectionBox";
+import { BrightCrown, UserBadgeCheck, User } from "iconoir-react";
 
 const Team = () => {
   const theme = useTheme();
@@ -45,21 +47,25 @@ const Team = () => {
             width="60%"
             m="0 auto"
             p="5px"
+            pl="20px"
             display="flex"
-            justifyContent="center"
-            backgroundColor={
-              access === "admin"
-                ? colors.greenAccent[600]
-                : access === "manager"
-                ? colors.greenAccent[700]
-                : colors.greenAccent[700]
-            }
+            justifyContent="space-between"
+            alignItems="center"
+            backgroundColor="transparent"
             borderRadius="4px"
           >
-            {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
-            {access === "manager" && <SecurityOutlinedIcon />}
-            {access === "user" && <LockOpenOutlinedIcon />}
-            <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
+            {access === "admin" && <BrightCrown color={colors.primary[0]} />}
+            {access === "manager" && <UserBadgeCheck />}
+            {access === "user" && <User />}
+            <Typography 
+              flexGrow={1}
+              color={
+              access === "admin"
+              ? colors.primary[0]
+              : access === "manager"
+              ? colors.text[0]
+              : colors.text[0]
+            } sx={{ ml: "5px" }}>
               {access}
             </Typography>
           </Box>
@@ -69,11 +75,11 @@ const Team = () => {
   ];
 
   return (
-    <Box m="20px">
+    <SectionBox m="20px">
       <Header title="TEAM" subtitle="Managing the Team Members" />
       <Box
-        m="40px 0 0 0"
-        height="75vh"
+        p="30px"
+        height="70vh"
         sx={{
           "& .MuiDataGrid-root": {
             border: "none",
@@ -82,27 +88,27 @@ const Team = () => {
             borderBottom: "none",
           },
           "& .name-column--cell": {
-            color: colors.greenAccent[300],
+            color: colors.text[0],
           },
           "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor: colors.background.sectionBox,
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[400],
+            backgroundColor: 'transparent',
           },
           "& .MuiDataGrid-footerContainer": {
             borderTop: "none",
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor: colors.background.sectionBox,
           },
           "& .MuiCheckbox-root": {
-            color: `${colors.greenAccent[200]} !important`,
+            color: `${colors.text[1]} !important`,
           },
         }}
       >
         <DataGrid checkboxSelection rows={mockDataTeam} columns={columns} />
       </Box>
-    </Box>
+    </SectionBox>
   );
 };
 
