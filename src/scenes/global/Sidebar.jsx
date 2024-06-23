@@ -47,7 +47,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [selected, setSelected] = useState("Dashboard");
 
   return (
@@ -98,6 +98,9 @@ const Sidebar = () => {
         "& .pro-menu-item.active .pro-icon-wrapper": {
           backgroundColor: "rgba(255, 255, 255, 0.3) !important",
         },
+        "& .pro-icon, & .pro-menu-item": {
+          colors: colors.text[0] + ' !important',
+        },
         "& .pro-icon svg": {
           height: '32px',
           width: '32px'
@@ -116,7 +119,7 @@ const Sidebar = () => {
             icon={isCollapsed ? <MenuIcon strokeWidth="1"/> : <CloseIcon strokeWidth="1"/>}
             style={{
               margin: "10px 0 20px 0",
-              color: colors.text[0],
+              color: colors.text[0] + ' !important',
             }}
           >
           </MenuItem>
