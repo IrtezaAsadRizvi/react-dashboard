@@ -5,7 +5,7 @@ import LineChart from "../../components/LineChart";
 import GeographyChart from "../../components/GeographyChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
-import ProgressCircle from "../../components/ProgressCircle";
+import ProgressRing from "../../components/ProgressRing";
 import SectionBox from "../../components/SectionBox";
 import ImageIcon from "../../components/ImageIcon";
 import {
@@ -232,7 +232,21 @@ const Dashboard = () => {
                             alignItems="center"
                             mt="25px"
                         >
-                            <ProgressCircle size="125" />
+                            <ProgressRing
+                                percent={125}
+                                startColor="#FAADA9"
+                                endColor="#DCD5F2"
+                                width={120}
+                                height={120}
+                                strokeWidth={10}
+                                cx={60}
+                                cy={60}
+                                r={40}
+                                transitionDuration={0.3}
+                                rotation="-90deg"
+                                strokeLinecap="round"
+                                content={''}
+                            />
                             <Typography
                                 variant="h5"
                                 color={colors.greenAccent[500]}
