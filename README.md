@@ -28,6 +28,9 @@ npm install
 npm run build
 ```
 
+## Design
+**<a href="https://www.behance.net/gallery/202759735/Glassy-Admin-Dashboard" target="_blank">**Behance** - Glassy Admin Dashboard | Irteza Asad</a>**
+
 ## License
 
 [MIT]
